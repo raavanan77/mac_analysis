@@ -7,16 +7,23 @@ app = Flask(__name__)
 @app.route('/',methods=['GET','POST'])
 def home():
     if request.method == 'POST':
-        file = request.files['File']
-        file.save(file.filename)
-        if file.filename.split('.')[1] == 'pcapng':
-            result = macAnalysis(file.filename)
-        else:
-            return render_template('home.html',v='')
+        try:
+            file = request.files['File']
+            if file.filename.split('.')[1] == 'pcapng':
+                file.save(file.filename)
+                result = macAnalysis(file.filename)
+            else:
+                return render_template('home.html',v='',resultv='hidden')
+        except:
+            return render_template('home.html',v='',resultv='hidden')
         os.system(f'rm *.pcapng && rm *.csv')
-        return render_template('results.html',outputs = result,v='')
+        return render_template('home.html',outputs = result,v='hidden',resultv='')
 
-    return render_template('home.html',v='hidden')
+    return render_template('home.html',v='hidden',resultv='hidden')
+
+@app.route('/result')
+def yahoo():
+    return render_template('results.html')
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
