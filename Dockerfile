@@ -8,7 +8,7 @@ RUN apt-get update
 
 RUN apt-get install -y tshark
 
-RUN pip3 --no-cache-dir install -r requirements.txt
+RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
