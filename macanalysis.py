@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+
 def macAnalysis(filename):
 
     os.system(f'tshark -r {os.getcwd()}/{filename} -T fields -e wlan.fc.type -E header=y -E separator=, -E quote=d -E occurrence=f > mac.csv')
