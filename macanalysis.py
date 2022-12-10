@@ -4,7 +4,9 @@ import pandas as pd
 def macAnalysis(filename):
     try:
         os.system(f'tshark -r {os.getcwd()}/{filename} -T fields -e wlan.fc.type -E header=y -E separator=, -E quote=d -E occurrence=f > mac.csv')
-        mgt = "Total Managment Frames : ";ctrl = "Total Control Frames : ";data = "Total Data Frames : "
+        mgt =  "Total Managment Frames : "
+        ctrl = "Total Control Frames   : "
+        data = "Total Data Frames      : "
         mac = (pd.read_csv('mac.csv').groupby(['wlan.fc.type']))
         try:mgt += str(mac.groups[0].size)
         except:mgt += str(0)
