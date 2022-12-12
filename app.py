@@ -9,14 +9,14 @@ def home():
     if request.method == 'POST':
         try:
             file = request.files['File']
-            if file.filename.split('.')[1] == 'pcapng':
+            if file.filename.split('.')[1] == 'pcapng' or file.filename.split('.')[1] == 'pcap':
                 file.save(file.filename)
                 result = macAnalysis(file.filename)
             else:
                 return render_template('home.html',v='',resultv='hidden')
         except:
             return render_template('home.html',v='',resultv='hidden')
-        os.system(f'rm *.pcapng && rm *.csv')
+        os.system(f'rm *.pcapng || rm *.pcap && rm *.csv')
         return render_template('home.html',outputs = result,v='hidden',resultv='')
 
     return render_template('home.html',v='hidden',resultv='hidden')
