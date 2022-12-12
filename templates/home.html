@@ -2,28 +2,30 @@
     <head>
         <title>MAC</title>
     </head>
-    <body>
+    <body style="background-image:url({{ url_for('static', filename='/bg.png') }}); background-position: center;background-size: cover;background-repeat: no-repeat;background-attachment: fixed;">
         <link rel="stylesheet" href='/static/style.css'/>
         
         <form method = "POST" enctype = "multipart/form-data" >
             <div>
                 <label style="font-family: RooneySans-Regular,Lucida Sans,Lucida Grande,Lucida Sans Unicode,Trebuchet MS,sans-serif;font-size: 45px;color: #000;font-weight: 500;">MAC Frame Analaysis</label>
-                <div name="fileup" style="">
+                <div name="fileupdiv" style="">
                     <div class="upload-btn-wrapper">
-                        <button class="btn" >Upload a file</button>
-                        <input class="btn" type = "file" name = "File" style="width: 365px;height: 43px;"><div style="display: inline;"><button class="sub" input type = "submit" value = "Submit" name="upload"> Submit </button></div>
+                        <button class="btn" >Upload a file
+                        <input class="btn" type = "file" id ="fileup" name = "File" style="width: 365px;height: 43px;"></button><div style="display: inline;"><button class="sub" input type = "submit" value = "Submit" name="upload"> Submit </button></div>
                     </div>
                 </div>
             </div>
             
-            <h5 style="visibility: {{ v }} ">Please upload valid cap files.</h5>
+            <h5 style="visibility: {{ v }} ">Please upload valid pcapng files.</h5>
             <div class="form-group result" style="visibility: {{ resultv }} ">
                 <div class="col-sm-10" style="padding-top: 8px">
                     <table class="table">
                         <tbody>
                             {% for i in outputs %}
 
-                                <tr><td style="font-family: RooneySans-Regular,Lucida Sans,Lucida Grande,Lucida Sans Unicode,Trebuchet MS,sans-serif;font-size: 20px;color: #000;font-weight: 500;">{{ i.split(':')[0] }}</td><td style="font-family: RooneySans-Regular,Lucida Sans,Lucida Grande,Lucida Sans Unicode,Trebuchet MS,sans-serif;font-size: 20px;color: #000;font-weight: 500;" name="{{ (i.split(':')[0]).replace(' ','') }}result">:{{ i.split(':')[1] }}</td></tr>  
+                                <tr><td style="font-family: RooneySans-Regular,Lucida Sans,Lucida Grande,Lucida Sans Unicode,Trebuchet MS,sans-serif;font-size: 20px;color: #000;font-weight: 500;">{{ i.split(':')[0] }}</td>
+                                    <td>:</td>
+                                    <td style="font-family: RooneySans-Regular,Lucida Sans,Lucida Grande,Lucida Sans Unicode,Trebuchet MS,sans-serif;font-size: 20px;color: #000;font-weight: 500;" name="{{ (i.split(':')[0]).replace(' ','') }}result">{{ i.split(':')[1] }}</td></tr>  
                             {% endfor %}
                         </tbody>
                     </table>
