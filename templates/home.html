@@ -2,16 +2,16 @@
     <head>
         <title>MAC</title>
     </head>
-    <body style="background-image:url({{ url_for('static', filename='/bg.png') }}); background-position: center;background-size: cover;background-repeat: no-repeat;background-attachment: fixed;">
+    <body >
         <link rel="stylesheet" href='/static/style.css'/>
         
         <form method = "POST" enctype = "multipart/form-data" >
             <div>
                 <label style="font-family: RooneySans-Regular,Lucida Sans,Lucida Grande,Lucida Sans Unicode,Trebuchet MS,sans-serif;font-size: 45px;color: #000;font-weight: 500;">MAC Frame Analaysis</label>
-                <div name="fileupdiv" style="">
+                <div name="fileupdiv">
                     <div class="upload-btn-wrapper">
-                        <button class="btn" >Upload a file
-                        <input class="btn" type = "file" id ="fileup" name = "File" style="width: 365px;height: 43px;"></button><div style="display: inline;"><button class="sub" input type = "submit" value = "Submit" name="upload"> Submit </button></div>
+                        <button class="btn" >Upload a file</button>
+                        <input class="btn" type = "file" id ="fileup" name = "File" style="width: 365px;height: 43px;"><div style="display: inline;"><button class="sub" input type = "submit" value = "Submit" name="upload"> Submit </button></div>
                     </div>
                 </div>
             </div>
