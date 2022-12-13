@@ -16,7 +16,7 @@ def home():
                 return render_template('home.html',v='',resultv='hidden')
         except:
             return render_template('home.html',v='',resultv='hidden')
-        os.system(f'rm *.pcapng || rm *.pcap && rm *.csv')
+        os.system(f'rm *.pcapng');os.system(f'rm *.pcap');os.system(f'rm *.csv')
         return render_template('home.html',outputs = result,v='hidden',resultv='')
 
     return render_template('home.html',v='hidden',resultv='hidden')
