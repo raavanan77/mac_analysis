@@ -1,0 +1,19 @@
+1671172943957	geckodriver	INFO	Listening on 127.0.0.1:50205
+1671172944432	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "56749" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilejTAkTH"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1671172945353	Marionette	INFO	Marionette enabled
+1671172945358	Marionette	INFO	Listening on port 39423
+Read port: 39423
+WebDriver BiDi listening on ws://127.0.0.1:56749
+1671172945494	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilejTAkTH/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:56749/devtools/browser/e6797e32-53e1-48a8-afe3-2aa8077e471b
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://mac-analysis.onrender.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://mac-analysis.onrender.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://mac-analysis.onrender.com."
+1671173092890	Marionette	INFO	Stopped listening on port 39423
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+!!! error running onStopped callback: TypeError: callback is not a function
