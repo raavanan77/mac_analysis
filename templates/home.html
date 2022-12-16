@@ -35,9 +35,11 @@
                         <tbody>
                             {% for i in outputs %}
                                 <tr>
-                                    <td style="font-family: RooneySans-Regular,Lucida Sans,Lucida Grande,Lucida Sans Unicode,Trebuchet MS,sans-serif;font-size: 20px;color: #000;font-weight: 500;">{{ i.split(':')[0] }}</td>
-                                    <td>:</td>
-                                    <td style="font-family: RooneySans-Regular,Lucida Sans,Lucida Grande,Lucida Sans Unicode,Trebuchet MS,sans-serif;font-size: 20px;color: #000;font-weight: 500;" name="{{ (i.split(':')[0]).replace(' ','') }}result">{{ i.split(':')[1] }}</td>
+                                    <td style="font-family: RooneySans-Regular,Lucida Sans,Lucida Grande,Lucida Sans Unicode,Trebuchet MS,sans-serif;font-size: 20px;color: #000;font-weight: 500;" name="noframeresult">{{ i.split(':')[0] }}</td>
+                                    {% if (i.split(':')[1])  %}
+                                        <td>:</td>
+                                        <td style="font-family: RooneySans-Regular,Lucida Sans,Lucida Grande,Lucida Sans Unicode,Trebuchet MS,sans-serif;font-size: 20px;color: #000;font-weight: 500;" name="{{ (i.split(':')[0]).replace(' ','') }}result">{{ i.split(':')[1] }}</td>
+                                    {% endif %} 
                                 </tr>  
                             {% endfor %}
                         </tbody>
