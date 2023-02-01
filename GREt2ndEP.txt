@@ -1,0 +1,17 @@
+    1  apt-get update && apt-get install iproute2 net-tools inetutils-ping -y
+    2  ifconfig 
+    3  ip link add name gretun type gre local 172.17.0.2 remote 172.17.0.3
+    4  ip link set gretun up
+    5  ip addr add 10.0.0.1/24 dev gretun
+    6  echo 1 > /proc/sys/net/ipv4/ip_forward
+    7  ping 10.0.0.2
+    8  ip show route
+    9  ip route show
+   10  ifconfig 
+   11  ping 10.0.0.2
+   12  apt-get update && apt-get install tshark -y
+   13  tshark -i gretun -w c.pcapng
+   14  ls
+   15  cat c.pcapng 
+   16  clear
+   17  history > gretunnel1EP.txt

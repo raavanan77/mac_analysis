@@ -1,0 +1,12 @@
+    1  apt-get update && apt-get install iproute2 net-tools inetutils-ping -y
+    2  ifconfig 
+    3  ip link add name gretun type gre local 172.17.0.3 remote 172.17.0.2
+    4  ip link set gretun up
+    5  ip addr add 10.0.0.2/24 dev gretun
+    6  echo 1 > /proc/sys/net/ipv4/ip_forward
+    7  ifconfig 
+    8  tcpdump
+    9  ping 10.0.0.1
+   10  ping 172.17.0.2
+   11  clear
+   12  history > gretunnel2ndEP.txt
